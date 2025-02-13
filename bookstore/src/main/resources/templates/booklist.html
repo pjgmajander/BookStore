@@ -3,28 +3,33 @@
   <head>
     <title>BookStore</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="css/bootstrap.min.css"
+      th:href="@{css/bootstrap.min.css}"
+    />
   </head>
   <body>
     <h1>Book List</h1>
 
     <table class="table table-striped">
-        <tr>
-            <th>Title</th>
-            <th>Author</th>
-            <th>Publication Year</th>
-            <th>Price</th>
-            <th>ISBN</th>
-        </tr>
-    <tr th:each="i : ${books}">
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Publication Year</th>
+        <th>Price</th>
+        <th>ISBN</th>
+      </tr>
+      <tr th:each="i : ${books}">
         <td th:text="${i.title}"></td>
         <td th:text="${i.author}"></td>
         <td th:text="${i.publicationYear}"></td>
         <td th:text="${i.price}"></td>
         <td th:text="${i.isbn}"></td>
-        <br>
-    </tr>
-</table>
-<div><a href="/add" class="btn btn-primary">Add a book</a></div>
+        <br />
+      </tr>
+    </table>
+    <div><a href="/add" class="btn btn-success">Add a book</a></div>
   </body>
 </html>
-

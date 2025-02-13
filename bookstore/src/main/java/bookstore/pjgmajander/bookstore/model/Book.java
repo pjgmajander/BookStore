@@ -7,14 +7,13 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-
 @Entity
 public class Book {
 
-@Id
-@GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
 
-private Long id;
+    private Long id;
 
     // class attributes
 
@@ -23,7 +22,6 @@ private Long id;
     private Integer publicationYear;
     private BigDecimal price;
     private String isbn;
-
 
     // 0-args-constructor
 
@@ -54,11 +52,11 @@ private Long id;
         return publicationYear;
     }
 
-    public BigDecimal getPrice(){
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public String getIsbn(){
+    public String getIsbn() {
         return isbn;
     }
 
@@ -88,7 +86,8 @@ private Long id;
 
     @Override
     public String toString() {
-        return "Book [title=" + title + ", author=" + author + ", publicationYear=" + publicationYear + ", price=" + price + ", isbn=" + isbn + "]";
+        return "Book [title=" + title + ", author=" + author + ", publicationYear=" + publicationYear + ", price="
+                + price + ", isbn=" + isbn + "]";
     }
 
 }
