@@ -7,8 +7,7 @@
   <body>
     <h1>Book List</h1>
 
-    <p th:text="${message}"></p>
-    <table>
+    <table class="table table-striped">
         <tr>
             <th>Title</th>
             <th>Author</th>
@@ -16,14 +15,16 @@
             <th>Price</th>
             <th>ISBN</th>
         </tr>
-    <tr th:each="book : ${books}">
-        <td th:text="${book.title}"></td>
-        <td th:text="${book.author}"></td>
-        <td th:int="${book.publicationYear}"></td>
-        <td th:int="${book.price}"></td>
-        <td th:text="${book.isbn}"></td>
+    <tr th:each="i : ${books}">
+        <td th:text="${i.title}"></td>
+        <td th:text="${i.author}"></td>
+        <td th:text="${i.publicationYear}"></td>
+        <td th:text="${i.price}"></td>
+        <td th:text="${i.isbn}"></td>
         <br>
     </tr>
 </table>
+<div><a href="/add" class="btn btn-primary">Add a book</a></div>
   </body>
 </html>
+

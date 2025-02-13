@@ -1,4 +1,5 @@
 package bookstore.pjgmajander.bookstore.web;
+import bookstore.pjgmajander.bookstore.model.Book;
 import bookstore.pjgmajander.bookstore.model.BookRepo;
 
 import java.util.ArrayList;
@@ -11,6 +12,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
 
 
 @Controller
@@ -29,7 +33,24 @@ public String bookList(Model model) {
     return "booklist";
 }
 
+@RequestMapping("/add")
+public String addBook(Model model) {
+    model.addAttribute("book", new Book());
+    return "addbook";
 }
+
+@RequestMapping(value="/add", method=RequestMethod.POST)
+public String save(Book book) {
+    repository.save(book);
+    System.out.println("Saving book: " + book);
+    return "redirect:/bookList";
+}
+
+
+
+}
+
+
 
 /*@PostMapping("/add")
 public String addBook(Model model) {

@@ -1,5 +1,7 @@
 package bookstore.pjgmajander.bookstore.model;
 
+import java.math.BigDecimal;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,8 +20,8 @@ private Long id;
 
     private String title;
     private String author;
-    private int publicationYear;
-    private int price;
+    private Integer publicationYear;
+    private BigDecimal price;
     private String isbn;
 
 
@@ -30,7 +32,7 @@ private Long id;
 
     // main-constructor
 
-    public Book(String title, String author, int publicationYear, int price, String isbn) {
+    public Book(String title, String author, Integer publicationYear, BigDecimal price, String isbn) {
         this.title = title;
         this.author = author;
         this.publicationYear = publicationYear;
@@ -48,11 +50,11 @@ private Long id;
         return author;
     }
 
-    public int getPublicationyear() {
+    public Integer getPublicationYear() {
         return publicationYear;
     }
 
-    public int getPrice(){
+    public BigDecimal getPrice(){
         return price;
     }
 
@@ -70,11 +72,11 @@ private Long id;
         this.author = author;
     }
 
-    public void setPublicationyear(int publicationYear) {
+    public void setPublicationYear(Integer publicationYear) {
         this.publicationYear = publicationYear;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
