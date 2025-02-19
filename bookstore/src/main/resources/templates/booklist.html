@@ -10,26 +10,35 @@
       th:href="@{css/bootstrap.min.css}"
     />
   </head>
-  <body>
-    <h1>Book List</h1>
+  <body class="bg-dark text-white">
+    <div class="container">
+      <h1 class="display-5 | text-center ">Book List</h1>
+    </div>
 
-    <table class="table table-striped">
-      <tr>
-        <th>Title</th>
-        <th>Author</th>
-        <th>Publication Year</th>
-        <th>Price</th>
-        <th>ISBN</th>
-      </tr>
-      <tr th:each="i : ${books}">
-        <td th:text="${i.title}"></td>
-        <td th:text="${i.author}"></td>
-        <td th:text="${i.publicationYear}"></td>
-        <td th:text="${i.price}"></td>
-        <td th:text="${i.isbn}"></td>
-        <br />
-      </tr>
-    </table>
-    <div><a href="/add" class="btn btn-success">Add a book</a></div>
+
+      <table class="table table-striped table-dark">
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Publication Year</th>
+          <th>Price</th>
+          <th>ISBN</th>
+          <td></td>
+        </tr>
+        
+        <tr th:each="i : ${books}">
+          <td th:text="${i.title}"></td>
+          <td th:text="${i.author}"></td>
+          <td th:text="${i.publicationYear}"></td>
+          <td th:text="${i.price}"></td>
+          <td th:text="${i.isbn}"></td>
+          <td>
+            <a th:href="@{/delete/{id}(id=${i.id})}" class="btn btn-danger">Delete</a>
+          </td>
+          <br />
+        </tr>
+      </table>
+      <div class="mr-3"><a href="/add" class="btn btn-success">Add a book</a></div>
+
   </body>
 </html>
