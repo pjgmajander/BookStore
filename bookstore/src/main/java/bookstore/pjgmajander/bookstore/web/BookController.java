@@ -49,11 +49,20 @@ public class BookController {
 
     //saveBookForm
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String save(Book book) {
-        repository.save(book);
-        System.out.println("Saving book: " + book);
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    public String save(Book book) { System.out.println("Book ID: " + book.getId());
+    System.out.println("Book Title: " + book.getTitle());
+        if (book.getId() != null) {
+            // Update existing book
+            repository.save(book);
+            System.out.println("Updating book: " + book);
+        } else {
+            // Save new book
+            repository.save(book);
+            System.out.println("Saving new book: " + book);
+        }
         return "redirect:/bookList";
+        
     }
 
     //removeBook
@@ -69,7 +78,9 @@ public class BookController {
 
     @RequestMapping(value="/edit/{id}")
     public String showModelBook(@PathVariable("id") Long bookId, Model model) {
-        model.addAttribute("book", repository.findById(bookId));
+        Book book = repository.findById(bookId).orElseThrow(() -> new IllegalArgumentException("Invalid book-ID: " + bookId));
+        System.out.println("Editing book: " + book);
+        model.addAttribute("book", book);
         return "editbook";
     }
 

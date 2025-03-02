@@ -33,6 +33,7 @@
           <td th:text="${i.price}"></td>
           <td th:text="${i.isbn}"></td>
           <td>
+            <a th:href="@{/edit/{id}(id=${i.id})}" class="btn btn-warning">Edit</a>
             <a th:href="@{/delete/{id}(id=${i.id})}" class="btn btn-danger">Delete</a>
           </td>
           <br />
